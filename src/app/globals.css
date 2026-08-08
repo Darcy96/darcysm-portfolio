@@ -1,0 +1,9 @@
+/* ═══════════════════════════════════════════════════════════════
+   darcysm-portfolio — Minimal app-level overrides
+   All design tokens & resets come from bastet-ui/styles.
+   ═══════════════════════════════════════════════════════════════ */
+
+html,
+body {
+  height: 100%;
+}
