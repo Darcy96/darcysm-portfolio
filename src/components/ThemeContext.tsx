@@ -25,7 +25,7 @@ export const ThemeSwitcherContext = createContext<ThemeSwitcherContextValue>({
  * @example
  * ```tsx
  * const { activeTheme, setTheme } = useThemeSwitcher();
- * setTheme('barbie');
+ * setTheme('pink');
  * ```
  */
 export function useThemeSwitcher() {
