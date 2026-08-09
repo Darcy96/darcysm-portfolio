@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { BstThemeProvider } from '@darcysm/bastet-ui';
+import { BstThemeProvider, Navbar, Footer } from '@darcysm/bastet-ui';
 import type { ThemeName } from '@darcysm/bastet-ui';
 import { ThemeSwitcherContext } from './ThemeContext';
 
@@ -28,7 +28,32 @@ export function ThemeShell({ children }: { children: React.ReactNode }) {
   return (
     <ThemeSwitcherContext.Provider value={contextValue}>
       <BstThemeProvider theme={activeTheme}>
-        {children}
+        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+          <Navbar
+            brand={<strong>Darcysm</strong>}
+            links={[
+              { label: 'Home', href: '/' },
+              { label: 'Projects', href: '#projects' },
+              { label: 'About', href: '#about' },
+            ]}
+            activeTheme={activeTheme}
+            onThemeChange={setActiveTheme}
+            sticky
+          />
+          
+          <main style={{ flex: 1 }}>
+            {children}
+          </main>
+
+          <Footer
+            socials={[
+              { platform: 'github', url: 'https://github.com/darcysm' },
+              { platform: 'linkedin', url: 'https://linkedin.com/in/darcysm' },
+              { platform: 'twitter', url: 'https://x.com/darcysm' }
+            ]}
+            copyright={`© ${new Date().getFullYear()} Darcysm. Creado con Bastet UI 🐱`}
+          />
+        </div>
       </BstThemeProvider>
     </ThemeSwitcherContext.Provider>
   );

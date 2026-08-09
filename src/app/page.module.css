@@ -29,11 +29,7 @@
   font-weight: 400;
 }
 
-/* ─── Theme Selector ───────────────────────────────────────── */
-
-.selectorSection {
-  margin-bottom: 56px;
-}
+/* ─── Showcase ─────────────────────────────────────────────── */
 
 .sectionLabel {
   font-size: 0.75rem;
@@ -43,14 +39,6 @@
   opacity: 0.5;
   margin-bottom: 16px;
 }
-
-.themeGrid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-/* ─── Showcase ─────────────────────────────────────────────── */
 
 .showcaseSection {
   margin-bottom: 48px;

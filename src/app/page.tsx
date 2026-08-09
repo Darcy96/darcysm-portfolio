@@ -1,19 +1,9 @@
 'use client';
 
-import { Button, themeNames, useBstTheme } from '@darcysm/bastet-ui';
-import type { ThemeName, ButtonVariant, ButtonSize } from '@darcysm/bastet-ui';
+import { Button, useBstTheme } from '@darcysm/bastet-ui';
+import type { ButtonVariant, ButtonSize } from '@darcysm/bastet-ui';
 import { useThemeSwitcher } from '@/components/ThemeContext';
 import styles from './page.module.css';
-
-// ─── Theme display labels ────────────────────────────────────
-
-const themeLabels: Record<ThemeName, string> = {
-  light: '☀️  Light',
-  dark: '🌙  Dark',
-  oriental: '🏯  Oriental',
-  'black-metal': '🤘  Black Metal',
-  barbie: '💖  Barbie',
-};
 
 // ─── Variant × Size matrix ──────────────────────────────────
 
@@ -23,7 +13,7 @@ const sizes: ButtonSize[] = ['sm', 'md', 'lg'];
 // ─── Page ─────────────────────────────────────────────────────
 
 export default function HomePage() {
-  const { activeTheme, setTheme } = useThemeSwitcher();
+  const { activeTheme } = useThemeSwitcher();
   const { token } = useBstTheme();
 
   return (
@@ -35,23 +25,6 @@ export default function HomePage() {
           Live theme integration test — switch presets and watch the magic
         </p>
       </header>
-
-      {/* Theme Selector */}
-      <section className={styles.selectorSection}>
-        <p className={styles.sectionLabel}>Select Theme</p>
-        <div className={styles.themeGrid}>
-          {themeNames.map((name) => (
-            <Button
-              key={name}
-              variant={name === activeTheme ? 'primary' : 'secondary'}
-              size="md"
-              onClick={() => setTheme(name)}
-            >
-              {themeLabels[name]}
-            </Button>
-          ))}
-        </div>
-      </section>
 
       {/* Button Showcase */}
       <section className={styles.showcaseSection}>
