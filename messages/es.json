@@ -1,0 +1,15 @@
+{
+  "Hero": {
+    "title1": "Desarrolladora de software",
+    "title2": "Frontend",
+    "description": "Especializada en arquitectura web escalable, sistemas de diseño y interfaces de alto rendimiento. Con más de 5 años de experiencia profesional en la construcción de aplicaciones robustas utilizando Next.js, TypeScript y GraphQL. Creador de Bastet UI — mostrando arquitectura avanzada multi-tema y diseño de componentes moderno.",
+    "explore": "Ver experiencia",
+    "contact": "Contactar",
+    "card1Title": "Bastet UI Core",
+    "card1Desc": "Sistemas de diseño avanzados, arquitectura multi-tema y componentes reutilizables.",
+    "card1Btn": "Ver Documentación",
+    "card2": "Multi-Tema 💖",
+    "projectsTitle": "Proyectos Destacados",
+    "projectsDesc": "Un vistazo a mis últimos trabajos construidos con tecnologías modernas."
+  }
+}

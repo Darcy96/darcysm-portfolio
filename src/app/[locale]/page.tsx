@@ -1,30 +1,32 @@
 'use client';
 
 import { HeroCreativeLayout, Button } from '@darcysm/bastet-ui';
+import { useTranslations } from 'next-intl';
 
 export default function HomePage() {
+  const t = useTranslations('Hero');
+
   return (
     <>
       <HeroCreativeLayout
         textContentSlot={
           <>
             <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', lineHeight: 1.1, fontWeight: 800, margin: 0, letterSpacing: '-0.02em' }}>
-              Digital <span style={{ color: 'var(--bst-primary)' }}>Vision</span> & UI Engineering
+              {t('title1')} <span style={{ color: 'var(--bst-primary)' }}>{t('title2')}</span>
             </h1>
             <p style={{ fontSize: '1.125rem', lineHeight: 1.6, color: 'var(--bst-text-secondary)', margin: '24px 0', maxWidth: '90%' }}>
-              Crafting immersive digital experiences through clean code, modern design systems, and relentless iteration. 
-              Powered by Bastet UI — dynamically adapting to your vibe.
+              {t('description')}
             </p>
-            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-              <Button variant="primary" size="lg">Explore Work</Button>
-              <Button variant="secondary" size="lg">Get in touch</Button>
+            <div className="bst-hero-creative__actions">
+              <Button variant="primary" size="lg">{t('explore')}</Button>
+              <Button variant="secondary" size="lg">{t('contact')}</Button>
             </div>
           </>
         }
         visualContentSlot={
           <div style={{ position: 'relative', width: '100%', height: '400px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             {/* Background organic glow */}
-            <div 
+            <div
               style={{
                 position: 'absolute',
                 top: '50%',
@@ -39,9 +41,9 @@ export default function HomePage() {
                 zIndex: 0,
               }}
             />
-            
+
             {/* Main Floating Card */}
-            <div 
+            <div
               className="bst-floating-card"
               style={{
                 position: 'relative',
@@ -50,16 +52,15 @@ export default function HomePage() {
                 transform: 'rotate(-2deg)',
               }}
             >
-              <h3 style={{ marginTop: 0, color: 'var(--bst-primary)' }}>System Nominal</h3>
+              <h3 style={{ marginTop: 0, color: 'var(--bst-primary)' }}>{t('card1Title')}</h3>
               <p style={{ fontSize: '0.875rem', opacity: 0.8 }}>
-                Variables de entorno inyectadas.
-                Sincronización de tokens activa.
+                {t('card1Desc')}
               </p>
-              <Button variant="primary" size="sm" style={{ width: '100%' }}>View Specs</Button>
+              <Button variant="primary" size="sm" style={{ width: '100%' }}>{t('card1Btn')}</Button>
             </div>
 
             {/* Accent Floating Pill */}
-            <div 
+            <div
               className="bst-floating-card"
               style={{
                 position: 'absolute',
@@ -73,27 +74,27 @@ export default function HomePage() {
               }}
             >
               <p style={{ fontSize: '0.875rem', fontWeight: 600, margin: 0, textAlign: 'center' }}>
-                Multi-Theme 💖
+                {t('card2')}
               </p>
             </div>
           </div>
         }
       />
-      
+
       {/* Divider */}
       <div style={{ width: '100%', height: '1px', backgroundColor: 'var(--bst-border)', margin: '40px 0' }} />
 
       <section id="projects" style={{ padding: '40px 24px 80px', maxWidth: '1200px', margin: '0 auto', textAlign: 'center' }}>
-        <h2 style={{ fontSize: '2rem', marginBottom: '16px' }}>Selected Projects</h2>
+        <h2 style={{ fontSize: '2rem', marginBottom: '16px' }}>{t('projectsTitle')}</h2>
         <p style={{ color: 'var(--bst-text-secondary)', marginBottom: '48px', fontSize: '1.125rem' }}>
-          Un vistazo a mis últimos trabajos construidos con tecnologías modernas.
+          {t('projectsDesc')}
         </p>
-        
+
         {/* Placeholder Grid */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '32px' }}>
           {[1, 2, 3].map((i) => (
-            <div 
-              key={i} 
+            <div
+              key={i}
               className="bst-floating-card"
               style={{ minHeight: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
             >

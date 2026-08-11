@@ -1,0 +1,15 @@
+{
+  "Hero": {
+    "title1": "Frontend Software",
+    "title2": "Engineer",
+    "description": "Specializing in scalable web architecture, design systems, and high-performance interfaces. With 5+ years of professional experience building robust applications using Next.js, TypeScript, and GraphQL. Creator of Bastet UI — showcasing advanced multi-theme architecture and modern component design",
+    "explore": "View Experience",
+    "contact": "Get in touch",
+    "card1Title": "Bastet UI Core",
+    "card1Desc": "Advanced design systems, multi-theme architecture, and reusable components.",
+    "card1Btn": "View Docs",
+    "card2": "Multi-Theme 💖",
+    "projectsTitle": "Selected Projects",
+    "projectsDesc": "A glimpse of my latest work built with modern technologies."
+  }
+}

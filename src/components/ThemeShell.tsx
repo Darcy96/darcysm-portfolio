@@ -1,9 +1,11 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { BstThemeProvider, Navbar, Footer } from '@darcysm/bastet-ui';
+import { BstThemeProvider, Navbar, Footer, LanguageSwitcher } from '@darcysm/bastet-ui';
 import type { ThemeName } from '@darcysm/bastet-ui';
 import { ThemeSwitcherContext } from './ThemeContext';
+import { useLocale } from 'next-intl';
+import { usePathname, useRouter, Link } from '@/i18n/routing';
 
 // ─── ThemeShell ───────────────────────────────────────────────
 
@@ -16,6 +18,9 @@ import { ThemeSwitcherContext } from './ThemeContext';
  */
 export function ThemeShell({ children }: { children: React.ReactNode }) {
   const [activeTheme, setActiveTheme] = useState<ThemeName>('light');
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
 
   const contextValue = useMemo(
     () => ({
@@ -33,9 +38,27 @@ export function ThemeShell({ children }: { children: React.ReactNode }) {
             brand={<strong>Darcysm</strong>}
             links={[
               { label: 'Home', href: '/' },
-              { label: 'Projects', href: '#projects' },
-              { label: 'About', href: '#about' },
+              { label: 'Projects', href: '/#projects' },
+              { label: 'About', href: '/#about' },
             ]}
+            renderLink={(link, className, style) => (
+              <Link href={link.href as any} className={className} style={style}>
+                {link.label}
+              </Link>
+            )}
+            languageSwitcherSlot={
+              <LanguageSwitcher
+                activeLocale={locale}
+                locales={[
+                  { value: 'en', label: 'EN', icon: '🇺🇸' },
+                  { value: 'es', label: 'ES', icon: '🇲🇽' },
+                ]}
+                onLocaleChange={(newLocale) => {
+                  router.replace(pathname, { locale: newLocale });
+                }}
+                size="sm"
+              />
+            }
             activeTheme={activeTheme}
             onThemeChange={setActiveTheme}
             sticky
