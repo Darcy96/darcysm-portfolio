@@ -57,6 +57,7 @@ export function ThemeShell({ children }: { children: React.ReactNode }) {
                   router.replace(pathname, { locale: newLocale });
                 }}
                 size="sm"
+                variant="dropdown"
               />
             }
             activeTheme={activeTheme}
