@@ -12,6 +12,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
+import { cookies } from 'next/headers';
 
 export default async function RootLayout({
   children,
@@ -27,12 +28,14 @@ export default async function RootLayout({
   }
 
   const messages = await getMessages();
+  const cookieStore = await cookies();
+  const savedTheme = cookieStore.get('bst-theme')?.value;
 
   return (
     <html lang={locale}>
       <body>
         <NextIntlClientProvider messages={messages}>
-          <ThemeShell>{children}</ThemeShell>
+          <ThemeShell initialTheme={savedTheme as any}>{children}</ThemeShell>
         </NextIntlClientProvider>
       </body>
     </html>

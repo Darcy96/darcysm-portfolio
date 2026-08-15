@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { BstThemeProvider, Navbar, Footer, LanguageSwitcher } from '@darcysm/bastet-ui';
 import type { ThemeName } from '@darcysm/bastet-ui';
 import { ThemeSwitcherContext } from './ThemeContext';
@@ -16,16 +16,33 @@ import { usePathname, useRouter, Link } from '@/i18n/routing';
  *  1. ThemeSwitcherContext — so any page can call setTheme()
  *  2. BstThemeProvider — applies the selected Bastet UI theme
  */
-export function ThemeShell({ children }: { children: React.ReactNode }) {
-  const [activeTheme, setActiveTheme] = useState<ThemeName>('light');
+export function ThemeShell({ children, initialTheme }: { children: React.ReactNode, initialTheme?: ThemeName }) {
+  const [activeTheme, setActiveTheme] = useState<ThemeName>(initialTheme || 'light');
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
 
+  // Load saved theme on mount as a fallback if cookie was missing
+  useEffect(() => {
+    if (!initialTheme) {
+      const saved = localStorage.getItem('bst-theme');
+      if (saved) {
+        setActiveTheme(saved as ThemeName);
+        document.cookie = `bst-theme=${saved}; path=/; max-age=31536000`;
+      }
+    }
+  }, [initialTheme]);
+
+  const handleThemeChange = (theme: ThemeName) => {
+    setActiveTheme(theme);
+    localStorage.setItem('bst-theme', theme);
+    document.cookie = `bst-theme=${theme}; path=/; max-age=31536000`;
+  };
+
   const contextValue = useMemo(
     () => ({
       activeTheme,
-      setTheme: setActiveTheme,
+      setTheme: handleThemeChange,
     }),
     [activeTheme],
   );
@@ -61,7 +78,7 @@ export function ThemeShell({ children }: { children: React.ReactNode }) {
               />
             }
             activeTheme={activeTheme}
-            onThemeChange={setActiveTheme}
+            onThemeChange={handleThemeChange}
             sticky
           />
           
