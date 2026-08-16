@@ -15,8 +15,7 @@ export default function HomePage() {
 
       <ExperienceSection />
 
-      {/* Divider */}
-      <div style={{ width: '100%', height: '1px', backgroundColor: 'var(--bst-border)', margin: '20px 0' }} />
+
 
 
     </>
