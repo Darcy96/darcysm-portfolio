@@ -11,5 +11,45 @@
     "card2": "Multi-Tema 💖",
     "projectsTitle": "Proyectos Destacados",
     "projectsDesc": "Un vistazo a mis últimos trabajos construidos con tecnologías modernas."
+  },
+  "Experience": {
+    "title": "Experiencia Profesional",
+    "dacodes": {
+      "date": "Mar 2025 – Presente",
+      "role": "Front-End Web Engineer (Semi-Senior)",
+      "company": "Dacodes",
+      "location": "Remoto, México",
+      "achievements": [
+        "Diseño e implementación de una plataforma multi-tenant integral (compuesta por dos aplicaciones) para diversas federaciones deportivas en México, utilizando Next.js 14 (App Router) y una arquitectura modular.",
+        "Desarrollo de la aplicación pública de afiliación, implementando detección dinámica de dominio (Edge/Middleware) para cargar configuraciones personalizadas (logos, paletas de colores y branding) específicas de cada federación.",
+        "Construcción de un panel administrativo avanzado para la gestión integral de afiliados, configuración de contenido de las landing pages, módulo de creación de cupones y dashboards estadísticos.",
+        "Liderazgo técnico en la creación de un editor visual de credenciales de afiliación (WYSIWYG con funcionalidad drag-and-drop usando react-grid-layout), permitiendo personalización multi-cara y sincronización de plantillas.",
+        "Gestión eficiente del estado del servidor y flujos de datos complejos mediante TanStack React Query, consumiendo de forma híbrida APIs REST y GraphQL"
+      ]
+    },
+    "fortex": {
+      "date": "Oct 2022 - Feb 2025",
+      "role": "Front-End Web Developer",
+      "company": "Fortex Design",
+      "location": "Remoto, Miami, FL",
+      "achievements": [
+        "Desarrollo de la aplicación propietaria de la empresa orientada a la gestión de proyectos de telecomunicaciones (solución híbrida combinando funcionalidades de Notion y Jira).",
+        "Liderazgo en la creación y estandarización de un sistema de componentes reutilizables utilizando la metodología Atomic Design (creación de Átomos y Moléculas) para todo el equipo.",
+        "Responsable de la revisión de Pull Requests (PRs), garantizando la calidad del código y proponiendo mejoras continuas al equipo de desarrollo.",
+        "Implementación de manejo de estados globales utilizando Jotai y Contexts/Providers nativos de React."
+      ]
+    },
+    "avanti": {
+      "date": "Oct 2020 – Oct 2022",
+      "role": "Development Engineer",
+      "company": "Avanti IT",
+      "location": "Cali, Colombia",
+      "achievements": [
+        "Desarrollo integral de un sistema de gestión de PQRS (Peticiones, Quejas, Reclamos y Sugerencias) enfocado en el servicio al cliente.",
+        "Implementación de integraciones avanzadas de código con plataformas de inteligencia conversacional como Dialogflow y LivePerson.",
+        "Generación de reportes y gráficos dinámicos basados en la gestión de datos de PQRS.",
+        "Desarrollo complementario en el backend utilizando Node.js, Google Cloud Functions y gestión de bases de datos con Firebase y MongoDB."
+      ]
+    }
   }
 }

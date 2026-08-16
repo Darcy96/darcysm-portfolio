@@ -11,5 +11,45 @@
     "card2": "Multi-Theme 💖",
     "projectsTitle": "Selected Projects",
     "projectsDesc": "A glimpse of my latest work built with modern technologies."
+  },
+  "Experience": {
+    "title": "Professional Experience",
+    "dacodes": {
+      "date": "Mar 2025 – Present",
+      "role": "Front-End Web Engineer (Semi-Senior)",
+      "company": "Dacodes",
+      "location": "Remote, Mexico",
+      "achievements": [
+        "Design and implementation of a comprehensive multi-tenant platform (composed of two applications) for various sports federations in Mexico, using Next.js 14 (App Router) and a modular architecture.",
+        "Developed the public affiliation application, implementing dynamic domain detection (Edge/Middleware) to load custom configurations (logos, color palettes, and branding) specific to each federation.",
+        "Built an advanced administrative panel for comprehensive affiliate management, landing page content configuration, coupon creation module, and statistical dashboards.",
+        "Technical leadership in the creation of a visual affiliate credentials editor (WYSIWYG with drag-and-drop functionality using react-grid-layout), enabling multi-sided customization and template synchronization.",
+        "Efficient management of server state and complex data flows using TanStack React Query, hybridizing REST APIs and GraphQL integrations."
+      ]
+    },
+    "fortex": {
+      "date": "Oct 2022 - Feb 2025",
+      "role": "Front-End Web Developer",
+      "company": "Fortex Design",
+      "location": "Remote, Miami, FL",
+      "achievements": [
+        "Developed the company's proprietary telecommunications project management application (a hybrid solution combining Notion and Jira features).",
+        "Led the creation and standardization of a reusable component system using Atomic Design methodology (Atoms and Molecules) for the entire team.",
+        "Responsible for reviewing Pull Requests (PRs), ensuring code quality and proposing continuous improvements to the development team.",
+        "Implemented global state management using Jotai and native React Contexts/Providers."
+      ]
+    },
+    "avanti": {
+      "date": "Oct 2020 – Oct 2022",
+      "role": "Development Engineer",
+      "company": "Avanti IT",
+      "location": "Cali, Colombia",
+      "achievements": [
+        "End-to-end development of a PQR (Petitions, Complaints, Claims, and Suggestions) management system focused on customer service.",
+        "Implemented advanced code integrations with conversational intelligence platforms such as Dialogflow and LivePerson.",
+        "Generated dynamic reports and charts based on PQR data management.",
+        "Developed complementary backend features using Node.js, Google Cloud Functions, and database management with Firebase and MongoDB."
+      ]
+    }
   }
 }
