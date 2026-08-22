@@ -51,5 +51,39 @@
         "Desarrollo complementario en el backend utilizando Node.js, Google Cloud Functions y gestión de bases de datos con Firebase y MongoDB."
       ]
     }
+  },
+  "Contact": {
+    "title": "Contáctame",
+    "description": "¿Tienes un proyecto en mente o quieres trabajar juntos? Completa el formulario y te responderé lo antes posible.",
+    "fields": {
+      "name": "Nombre Completo",
+      "email": "Correo Electrónico",
+      "subject": "Asunto",
+      "message": "Mensaje"
+    },
+    "placeholders": {
+      "name": "Juan Pérez",
+      "email": "tu@correo.com",
+      "subject": "Selecciona un asunto",
+      "message": "Cuéntame sobre tu proyecto o idea..."
+    },
+    "subjects": {
+      "freelance": "Proyecto Freelance",
+      "job": "Oportunidad Laboral",
+      "collaboration": "Colaboración",
+      "other": "Otro"
+    },
+    "validation": {
+      "nameMin": "El nombre debe tener al menos 2 caracteres",
+      "emailInvalid": "Ingresa un correo electrónico válido",
+      "subjectRequired": "Selecciona un asunto",
+      "messageMin": "El mensaje debe tener al menos 10 caracteres"
+    },
+    "submit": "Enviar Mensaje",
+    "sending": "Enviando...",
+    "toast": {
+      "success": "¡Mensaje enviado con éxito! Te responderé pronto.",
+      "error": "Algo salió mal. Inténtalo de nuevo más tarde."
+    }
   }
 }

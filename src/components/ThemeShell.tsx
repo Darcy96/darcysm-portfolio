@@ -55,8 +55,8 @@ export function ThemeShell({ children, initialTheme }: { children: React.ReactNo
             brand={<strong>Darcysm</strong>}
             links={[
               { label: 'Home', href: '/' },
-              { label: 'Projects', href: '/#projects' },
-              { label: 'About', href: '/#about' },
+              // { label: 'Projects', href: '/#projects' },
+              //{ label: 'About', href: '/#about' },
             ]}
             renderLink={(link, className, style) => (
               <Link href={link.href as any} className={className} style={style}>
@@ -81,7 +81,7 @@ export function ThemeShell({ children, initialTheme }: { children: React.ReactNo
             onThemeChange={handleThemeChange}
             sticky
           />
-          
+
           <main style={{ flex: 1 }}>
             {children}
           </main>
