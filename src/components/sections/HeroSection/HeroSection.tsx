@@ -29,6 +29,13 @@ export function HeroSection() {
     }
   };
 
+  const handleScrollToContact = () => {
+    const element = document.getElementById('contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <HeroCreativeLayout
       titleSlot={
@@ -44,7 +51,7 @@ export function HeroSection() {
       actionsSlot={
         <div className="bst-hero-creative__actions">
           <Button variant="primary" size="lg" onClick={handleScrollToExperience}>{t('explore')}</Button>
-          <Button variant="secondary" size="lg">{t('contact')}</Button>
+          <Button variant="secondary" size="lg" onClick={handleScrollToContact}>{t('contact')}</Button>
         </div>
       }
       visualContentSlot={

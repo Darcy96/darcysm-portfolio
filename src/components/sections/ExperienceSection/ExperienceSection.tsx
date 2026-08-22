@@ -39,13 +39,13 @@ export function ExperienceSection() {
   ];
 
   return (
-    <section id="experience" style={{ padding: '30px 24px' }}>
+    <section id="experience" style={{ padding: '24px 24px', scrollMarginTop: '80px' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        <h2 style={{ fontSize: '2.5rem', marginBottom: '10px', textAlign: 'center' }}>
+        <h2 style={{ fontSize: '2.5rem', textAlign: 'center' }}>
           {t('title')}
         </h2>
 
-        {/* Usamos el nuevo componente HorizontalExperience desde la librería */}
+
         <HorizontalExperience items={experienceItems} />
       </div>
     </section>

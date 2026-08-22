@@ -9,7 +9,7 @@ export function ContactSection() {
   const t = useTranslations('Contact');
 
   return (
-    <section id="contact" style={{ padding: '30px 24px' }}>
+    <section id="contact" style={{ padding: '30px 24px', scrollMarginTop: '80px' }}>
       <div style={{ maxWidth: '720px', margin: '0 auto' }}>
         <h2 style={{ fontSize: '2.5rem', marginBottom: '8px', textAlign: 'center' }}>
           {t('title')}

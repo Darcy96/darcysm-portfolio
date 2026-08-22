@@ -2,7 +2,7 @@
 
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Input, Textarea, Select, Button, useToast } from '@darcysm/bastet-ui';
+import { Input, Textarea, Select, Button, useToast, CopyPill } from '@darcysm/bastet-ui';
 import type { SelectOption } from '@darcysm/bastet-ui';
 import { contactSchema, SUBJECT_OPTIONS, type ContactFormData } from '@/validations/contact.schema';
 import { sendContactEmail } from '@/actions/contact.actions';
@@ -61,54 +61,73 @@ export function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} noValidate>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
-        <Input
-          label={t('fields.name')}
-          placeholder={t('placeholders.name')}
-          error={resolveError(errors.name?.message)}
-          {...register('name')}
-        />
-        <Input
-          label={t('fields.email')}
-          placeholder={t('placeholders.email')}
-          type="email"
-          error={resolveError(errors.email?.message)}
-          {...register('email')}
-        />
+    <>
+      <form onSubmit={handleSubmit(onSubmit)} noValidate>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+          <Input
+            label={t('fields.name')}
+            placeholder={t('placeholders.name')}
+            error={resolveError(errors.name?.message)}
+            {...register('name')}
+          />
+          <Input
+            label={t('fields.email')}
+            placeholder={t('placeholders.email')}
+            type="email"
+            error={resolveError(errors.email?.message)}
+            {...register('email')}
+          />
+        </div>
+
+        <div style={{ marginTop: '20px' }}>
+          <Select
+            label={t('fields.subject')}
+            placeholder={t('placeholders.subject')}
+            options={subjectOptions}
+            error={resolveError(errors.subject?.message)}
+            {...register('subject')}
+          />
+        </div>
+
+        <div style={{ marginTop: '20px' }}>
+          <Textarea
+            label={t('fields.message')}
+            placeholder={t('placeholders.message')}
+            rows={5}
+            error={resolveError(errors.message?.message)}
+            {...register('message')}
+          />
+        </div>
+
+        <div style={{ marginTop: '28px' }}>
+          <Button
+            variant="primary"
+            size="lg"
+            htmlType="submit"
+            fullWidth
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? t('sending') : t('submit')}
+          </Button>
+        </div>
+      </form>
+
+      {/* Alternative Contact Divider */}
+      <div style={{ marginTop: '32px', display: 'flex', alignItems: 'center', gap: '16px' }}>
+        <div style={{ flex: 1, height: '1px', backgroundColor: 'var(--border-color, var(--bst-border))' }} />
+        <span style={{ color: 'var(--text-muted, var(--bst-text-secondary))', fontSize: '14px', fontWeight: 500 }}>
+          or
+        </span>
+        <div style={{ flex: 1, height: '1px', backgroundColor: 'var(--border-color, var(--bst-border))' }} />
       </div>
 
-      <div style={{ marginTop: '20px' }}>
-        <Select
-          label={t('fields.subject')}
-          placeholder={t('placeholders.subject')}
-          options={subjectOptions}
-          error={resolveError(errors.subject?.message)}
-          {...register('subject')}
+      {/* Copy Email Pill */}
+      <div style={{ marginTop: '24px', display: 'flex', justifyContent: 'center' }}>
+        <CopyPill 
+          value="darcysolarte@gmail.com" 
+          onCopy={() => toast.success('Email copiado al portapapeles')}
         />
       </div>
-
-      <div style={{ marginTop: '20px' }}>
-        <Textarea
-          label={t('fields.message')}
-          placeholder={t('placeholders.message')}
-          rows={5}
-          error={resolveError(errors.message?.message)}
-          {...register('message')}
-        />
-      </div>
-
-      <div style={{ marginTop: '28px' }}>
-        <Button
-          variant="primary"
-          size="lg"
-          htmlType="submit"
-          fullWidth
-          disabled={isSubmitting}
-        >
-          {isSubmitting ? t('sending') : t('submit')}
-        </Button>
-      </div>
-    </form>
+    </>
   );
 }
