@@ -75,7 +75,6 @@ export function HeroSection() {
 
           {/* Main Floating Card */}
           <div
-            className="bst-floating-card"
             style={{
               position: 'relative',
               zIndex: 2,
@@ -83,24 +82,31 @@ export function HeroSection() {
               transform: 'rotate(-2deg)',
             }}
           >
-            {mainCard}
+            <div className="bst-floating-card">
+              {mainCard}
+            </div>
           </div>
 
-          {/* Accent Floating Pill */}
+          {/* Secondary Pill Card (Decorative) */}
           <div
-            className="bst-floating-card"
             style={{
               position: 'absolute',
               bottom: '15%',
               right: '10%',
               zIndex: 3,
-              width: '160px',
-              padding: '16px',
-              borderRadius: 'calc(var(--bst-radius) * 3)',
               transform: 'rotate(6deg)',
             }}
           >
-            {pillCard}
+            <div
+              className="bst-floating-card"
+              style={{
+                width: '160px',
+                padding: '16px',
+                borderRadius: 'calc(var(--bst-radius) * 3)',
+              }}
+            >
+              {pillCard}
+            </div>
           </div>
         </div>
       }
