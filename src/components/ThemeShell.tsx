@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { BstThemeProvider, Navbar, Footer, LanguageSwitcher } from '@darcysm/bastet-ui';
 import type { ThemeName } from '@darcysm/bastet-ui';
 import { ThemeSwitcherContext } from './ThemeContext';
@@ -23,15 +23,8 @@ export function ThemeShell({ children, initialTheme }: { children: React.ReactNo
   const pathname = usePathname();
 
   // Load saved theme on mount as a fallback if cookie was missing
-  useEffect(() => {
-    if (!initialTheme) {
-      const saved = localStorage.getItem('bst-theme');
-      if (saved) {
-        setActiveTheme(saved as ThemeName);
-        document.cookie = `bst-theme=${saved}; path=/; max-age=31536000`;
-      }
-    }
-  }, [initialTheme]);
+  // Removed useEffect to prevent cascading renders and hydration mismatches.
+  // The initial theme is now strictly provided by the server via cookies.
 
   const handleThemeChange = (theme: ThemeName) => {
     setActiveTheme(theme);
@@ -59,7 +52,7 @@ export function ThemeShell({ children, initialTheme }: { children: React.ReactNo
               //{ label: 'About', href: '/#about' },
             ]}
             renderLink={(link, className, style) => (
-              <Link href={link.href as any} className={className} style={style}>
+              <Link href={link.href as React.ComponentProps<typeof Link>['href']} className={className} style={style}>
                 {link.label}
               </Link>
             )}

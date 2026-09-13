@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import type { ThemeName } from '@darcysm/bastet-ui';
 import '@darcysm/bastet-ui/styles.css';
 import '../globals.css';
 import { ThemeShell } from '@/components/ThemeShell';
@@ -23,7 +24,7 @@ export default async function RootLayout({
 }) {
   const { locale } = await params;
 
-  if (!routing.locales.includes(locale as any)) {
+  if (!routing.locales.includes(locale as (typeof routing.locales)[number])) {
     notFound();
   }
 
@@ -35,7 +36,7 @@ export default async function RootLayout({
     <html lang={locale}>
       <body>
         <NextIntlClientProvider messages={messages}>
-          <ThemeShell initialTheme={savedTheme as any}>{children}</ThemeShell>
+          <ThemeShell initialTheme={savedTheme as ThemeName}>{children}</ThemeShell>
         </NextIntlClientProvider>
       </body>
     </html>

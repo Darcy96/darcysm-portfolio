@@ -3,8 +3,7 @@
 import { HeroSection } from '@/components/sections/HeroSection/HeroSection';
 import { ExperienceSection } from '@/components/sections/ExperienceSection/ExperienceSection';
 import { ContactSection } from '@/components/sections/ContactSection';
-import { ProjectsSection } from '@/components/sections/ProjectsSection/ProjectsSection';
-import { AboutSection } from '@/components/sections/AboutSection/AboutSection';
+
 
 export default function HomePage() {
   return (
