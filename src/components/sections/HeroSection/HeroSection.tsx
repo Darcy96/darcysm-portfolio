@@ -1,6 +1,6 @@
 'use client';
 
-import { HeroCreativeLayout, Button } from '@darcysm/bastet-ui';
+import { HeroCreativeLayout, Button, Heading, Text } from '@darcysm/bastet-ui';
 import { useTranslations } from 'next-intl';
 
 export function HeroSection() {
@@ -8,18 +8,18 @@ export function HeroSection() {
 
   const mainCard = (
     <>
-      <h3 style={{ marginTop: 0, color: 'var(--bst-primary)' }}>{t('card1Title')}</h3>
-      <p style={{ fontSize: '0.875rem', opacity: 0.8 }}>
+      <Heading level={3} highlight noMargin>{t('card1Title')}</Heading>
+      <Text variant="secondary" size="sm">
         {t('card1Desc')}
-      </p>
+      </Text>
       <Button variant="primary" size="sm" style={{ width: '100%' }}>{t('card1Btn')}</Button>
     </>
   );
 
   const pillCard = (
-    <p style={{ fontSize: '0.875rem', fontWeight: 600, margin: 0, textAlign: 'center' }}>
+    <Text size="sm" weight="medium" align="center" style={{ margin: 0 }}>
       {t('card2')}
-    </p>
+    </Text>
   );
 
   const handleScrollToExperience = () => {
@@ -39,14 +39,14 @@ export function HeroSection() {
   return (
     <HeroCreativeLayout
       titleSlot={
-        <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', lineHeight: 1.1, fontWeight: 800, margin: 0, letterSpacing: '-0.02em' }}>
-          {t('title1')} <span style={{ color: 'var(--bst-primary)' }}>{t('title2')}</span>
-        </h1>
+        <Heading level={1} highlight noMargin style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
+          {t('title1')} {t('title2')}
+        </Heading>
       }
       descriptionSlot={
-        <p style={{ fontSize: '1.125rem', lineHeight: 1.6, color: 'var(--bst-text-secondary)', margin: '0', maxWidth: '90%' }}>
+        <Text variant="secondary" size="lg" style={{ margin: 0, maxWidth: '90%' }}>
           {t('description')}
-        </p>
+        </Text>
       }
       actionsSlot={
         <div className="bst-hero-creative__actions">
@@ -106,9 +106,9 @@ export function HeroSection() {
       }
       mobileCarouselItems={[
         <div key="desc" style={{ padding: '0 24px', textAlign: 'center' }}>
-          <p style={{ fontSize: '1.125rem', lineHeight: 1.6, color: 'var(--bst-text-secondary)', margin: 0 }}>
+          <Text variant="secondary" size="lg" style={{ margin: 0 }}>
             {t('description')}
-          </p>
+          </Text>
         </div>,
         <div key="main" className="bst-floating-card" style={{ width: '280px', margin: '0 auto' }}>
           {mainCard}

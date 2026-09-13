@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { ExperienceTimeline, type ExperienceItem } from '@darcysm/bastet-ui';
+import { ExperienceTimeline, Heading, type ExperienceItem } from '@darcysm/bastet-ui';
 
 export function ExperienceSection() {
   const t = useTranslations('Experience');
@@ -41,9 +41,9 @@ export function ExperienceSection() {
   return (
     <section id="experience" style={{ padding: '24px 24px', scrollMarginTop: '80px' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        <h2 style={{ fontSize: '2.5rem', textAlign: 'center' }}>
+        <Heading level={2} highlight align="center">
           {t('title')}
-        </h2>
+        </Heading>
 
 
         <ExperienceTimeline items={experienceItems} />

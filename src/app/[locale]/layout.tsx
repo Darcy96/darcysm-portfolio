@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import '@darcysm/bastet-ui/styles';
+import '@darcysm/bastet-ui/styles.css';
 import '../globals.css';
 import { ThemeShell } from '@/components/ThemeShell';
 

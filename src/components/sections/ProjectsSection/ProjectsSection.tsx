@@ -3,15 +3,17 @@
 // Opcionalmente podrías usar next-intl aquí:
 // import { useTranslations } from 'next-intl';
 
+import { Heading, Text } from '@darcysm/bastet-ui';
+
 export function ProjectsSection() {
   // const t = useTranslations('Projects');
 
   return (
     <section id="projects" style={{ padding: '40px 24px 80px', maxWidth: '1200px', margin: '0 auto', textAlign: 'center' }}>
-      <h2 style={{ fontSize: '2rem', marginBottom: '16px' }}>Mis Proyectos</h2>
-      <p style={{ color: 'var(--bst-text-secondary)', marginBottom: '48px', fontSize: '1.125rem' }}>
+      <Heading level={2} highlight>Mis Proyectos</Heading>
+      <Text variant="secondary" size="lg" style={{ marginBottom: '48px' }}>
         Aquí puedes ver algunos de mis trabajos más recientes.
-      </p>
+      </Text>
 
       {/* Placeholder Grid */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '32px' }}>
@@ -21,7 +23,7 @@ export function ProjectsSection() {
             className="bst-floating-card"
             style={{ minHeight: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
           >
-            <p style={{ opacity: 0.5 }}>Project {i} Placeholder</p>
+            <Text variant="secondary" align="center" style={{ margin: 0 }}>Project {i} Placeholder</Text>
           </div>
         ))}
       </div>

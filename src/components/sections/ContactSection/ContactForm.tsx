@@ -2,7 +2,7 @@
 
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Input, Textarea, Select, Button, useToast, CopyPill } from '@darcysm/bastet-ui';
+import { Input, Textarea, Select, Button, useToast, CopyPill, Text } from '@darcysm/bastet-ui';
 import type { SelectOption } from '@darcysm/bastet-ui';
 import { contactSchema, SUBJECT_OPTIONS, type ContactFormData } from '@/validations/contact.schema';
 import { sendContactEmail } from '@/actions/contact.actions';
@@ -115,9 +115,9 @@ export function ContactForm() {
       {/* Alternative Contact Divider */}
       <div style={{ marginTop: '32px', display: 'flex', alignItems: 'center', gap: '16px' }}>
         <div style={{ flex: 1, height: '1px', backgroundColor: 'var(--border-color, var(--bst-border))' }} />
-        <span style={{ color: 'var(--text-muted, var(--bst-text-secondary))', fontSize: '14px', fontWeight: 500 }}>
+        <Text inline variant="secondary" size="sm" weight="medium">
           or
-        </span>
+        </Text>
         <div style={{ flex: 1, height: '1px', backgroundColor: 'var(--border-color, var(--bst-border))' }} />
       </div>
 
