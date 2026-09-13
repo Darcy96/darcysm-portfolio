@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { BstThemeProvider, Navbar, Footer, LanguageSwitcher } from '@darcysm/bastet-ui';
+import { BstThemeProvider, Navbar, Footer, LanguageSwitcher, Heading } from '@darcysm/bastet-ui';
 import type { ThemeName } from '@darcysm/bastet-ui';
 import { ThemeSwitcherContext } from './ThemeContext';
 import { useLocale } from 'next-intl';
@@ -45,7 +45,7 @@ export function ThemeShell({ children, initialTheme }: { children: React.ReactNo
       <BstThemeProvider theme={activeTheme}>
         <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
           <Navbar
-            brand={<strong>Darcysm</strong>}
+            brand={<Heading level={5} noMargin>Darcy Solarte M.</Heading>}
             links={[
               { label: 'Home', href: '/' },
               // { label: 'Projects', href: '/#projects' },
@@ -85,7 +85,7 @@ export function ThemeShell({ children, initialTheme }: { children: React.ReactNo
               { platform: 'linkedin', url: 'https://linkedin.com/in/darcysm' },
               { platform: 'twitter', url: 'https://x.com/darcysm' }
             ]}
-            copyright={`© ${new Date().getFullYear()} Darcysm. Creado con Bastet UI 🐱`}
+            copyright={`© ${new Date().getFullYear()} Darcysm. Creado con Bastet UI`}
           />
         </div>
       </BstThemeProvider>
