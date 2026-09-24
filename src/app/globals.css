@@ -7,3 +7,32 @@ html,
 body {
   height: 100%;
 }
+
+.skip-link {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+  z-index: 9999;
+}
+
+.skip-link:focus {
+  position: absolute;
+  width: auto;
+  height: auto;
+  padding: 1rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  background-color: var(--bst-bg);
+  color: var(--bst-primary);
+  border: 1px solid var(--bst-primary);
+  top: 0;
+  left: 0;
+}

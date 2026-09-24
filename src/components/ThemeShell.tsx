@@ -16,8 +16,32 @@ import { usePathname, useRouter, Link } from '@/i18n/routing';
  *  1. ThemeSwitcherContext — so any page can call setTheme()
  *  2. BstThemeProvider — applies the selected Bastet UI theme
  */
-export function ThemeShell({ children, initialTheme }: { children: React.ReactNode, initialTheme?: ThemeName }) {
+export function ThemeShell({ 
+  children, 
+  initialTheme,
+  initialPerformanceMode
+}: { 
+  children: React.ReactNode; 
+  initialTheme?: ThemeName;
+  initialPerformanceMode?: 'always' | 'never' | 'auto';
+}) {
   const [activeTheme, setActiveTheme] = useState<ThemeName>(initialTheme || 'light');
+  const [perfMode, setPerfMode] = useState<'always' | 'never'>(() => {
+    if (initialPerformanceMode === 'always' || initialPerformanceMode === 'never') return initialPerformanceMode;
+    // Fallback to detecting OS and Network if no cookie
+    if (typeof window !== 'undefined') {
+      // 1. Accessibility: OS prefers reduced motion
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return 'always';
+      
+      // 2. Network: Data Saver mode or slow connection (2g/3g)
+      const nav = navigator as any;
+      if (nav.connection) {
+        if (nav.connection.saveData) return 'always';
+        if (nav.connection.effectiveType === 'slow-2g' || nav.connection.effectiveType === '2g' || nav.connection.effectiveType === '3g') return 'always';
+      }
+    }
+    return 'never';
+  });
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
@@ -32,6 +56,11 @@ export function ThemeShell({ children, initialTheme }: { children: React.ReactNo
     document.cookie = `bst-theme=${theme}; path=/; max-age=31536000`;
   };
 
+  const handlePerfChange = (mode: 'always' | 'never') => {
+    setPerfMode(mode);
+    document.cookie = `bst-performance=${mode}; path=/; max-age=31536000`;
+  };
+
   const contextValue = useMemo(
     () => ({
       activeTheme,
@@ -42,7 +71,7 @@ export function ThemeShell({ children, initialTheme }: { children: React.ReactNo
 
   return (
     <ThemeSwitcherContext.Provider value={contextValue}>
-      <BstThemeProvider theme={activeTheme}>
+      <BstThemeProvider theme={activeTheme} performanceMode={perfMode}>
         <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
           <Navbar
             brand={<Heading level={5} noMargin>Darcy Solarte M.</Heading>}
@@ -70,12 +99,32 @@ export function ThemeShell({ children, initialTheme }: { children: React.ReactNo
                 variant="dropdown"
               />
             }
+            performanceToggleSlot={
+              <button
+                onClick={() => handlePerfChange(perfMode === 'always' ? 'never' : 'always')}
+                title={perfMode === 'always' ? "Performance Mode ON" : "Performance Mode OFF"}
+                style={{
+                  background: 'transparent',
+                  border: '1px solid var(--bst-border)',
+                  color: perfMode === 'always' ? 'var(--bst-primary)' : 'var(--bst-text-secondary)',
+                  borderRadius: 'var(--bst-radius)',
+                  padding: '4px 8px',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '14px',
+                }}
+              >
+                {perfMode === 'always' ? '⚡ ECO' : '✨ GFX'}
+              </button>
+            }
             activeTheme={activeTheme}
             onThemeChange={handleThemeChange}
             sticky
           />
 
-          <main style={{ flex: 1 }}>
+          <main id="main-content" style={{ flex: 1 }}>
             {children}
           </main>
 

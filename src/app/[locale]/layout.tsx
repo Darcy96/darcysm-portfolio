@@ -31,12 +31,19 @@ export default async function RootLayout({
   const messages = await getMessages();
   const cookieStore = await cookies();
   const savedTheme = cookieStore.get('bst-theme')?.value;
+  const savedPerformance = cookieStore.get('bst-performance')?.value;
 
   return (
     <html lang={locale}>
       <body>
+        <a href="#main-content" className="skip-link">Skip to main content</a>
         <NextIntlClientProvider messages={messages}>
-          <ThemeShell initialTheme={savedTheme as ThemeName}>{children}</ThemeShell>
+          <ThemeShell 
+            initialTheme={savedTheme as ThemeName}
+            initialPerformanceMode={savedPerformance as 'auto' | 'always' | 'never'}
+          >
+            {children}
+          </ThemeShell>
         </NextIntlClientProvider>
       </body>
     </html>
