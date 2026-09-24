@@ -12,6 +12,10 @@
     "projectsTitle": "Selected Projects",
     "projectsDesc": "A glimpse of my latest work built with modern technologies."
   },
+  "About": {
+    "title": "About Me",
+    "description": "I am a Frontend Engineer with a strong inclination towards software architecture and user-centric design. I firmly believe that good code should not only be functional, but also scalable, clean, and accessible. I built Bastet UI from scratch not just as a component library, but as a personal canvas: its multi-theme architecture represents the different facets of my personality, my fashion style, the music I listen to, and even my roots (the 'Ciudad Blanca' theme is a tribute to Popayán, the city where I live). It is the proof that creative expression and technical rigor can perfectly coexist."
+  },
   "Experience": {
     "title": "Professional Experience",
     "dacodes": {

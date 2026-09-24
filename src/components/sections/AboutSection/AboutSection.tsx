@@ -1,12 +1,15 @@
 'use client';
 import { Heading, Text } from '@darcysm/bastet-ui';
+import { useTranslations } from 'next-intl';
+
 export function AboutSection() {
+  const t = useTranslations('About');
+
   return (
-    <section id="about" style={{ padding: '40px 24px 80px', maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
-      <Heading level={2} highlight align="center">Sobre mí</Heading>
-      <Text variant="secondary" size="lg">
-        Soy un desarrollador Frontend apasionado por crear interfaces accesibles, rápidas y con un diseño impecable.
-        Me encanta experimentar con nuevas tecnologías y construir sistemas de diseño escalables.
+    <section id="about" style={{ padding: '80px 24px', maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+      <Heading level={2} highlight align="center" style={{ marginBottom: '24px' }}>{t('title')}</Heading>
+      <Text variant="secondary" size="lg" style={{ lineHeight: '1.8' }}>
+        {t('description')}
       </Text>
     </section>
   );

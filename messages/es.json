@@ -2,7 +2,7 @@
   "Hero": {
     "title1": "Desarrolladora de software",
     "title2": "Frontend",
-    "description": "Especializada en arquitectura web escalable, sistemas de diseño y interfaces de alto rendimiento. Con más de 5 años de experiencia profesional en la construcción de aplicaciones robustas utilizando Next.js, TypeScript y GraphQL. Creador de Bastet UI — mostrando arquitectura avanzada multi-tema y diseño de componentes modernos.",
+    "description": "Especializada en arquitectura web escalable, sistemas de diseño y interfaces de alto rendimiento. Con más de 5 años de experiencia profesional en la construcción de aplicaciones robustas utilizando Next.js, TypeScript y GraphQL. Creadora de Bastet UI — mostrando arquitectura avanzada multi-tema y diseño de componentes modernos.",
     "explore": "Ver experiencia",
     "contact": "Contactar",
     "card1Title": "Bastet UI Core",
@@ -11,6 +11,10 @@
     "card2": "Multi-Tema 💖",
     "projectsTitle": "Proyectos Destacados",
     "projectsDesc": "Un vistazo a mis últimos trabajos construidos con tecnologías modernas."
+  },
+  "About": {
+    "title": "Sobre mí",
+    "description": "Soy una desarrolladora Frontend con una fuerte inclinación hacia la arquitectura de software y el diseño centrado en el usuario. Creo firmemente que el buen código no solo debe ser funcional, sino también escalable, limpio y accesible. Construí Bastet UI desde cero no solo como una librería de componentes, sino como un lienzo personal: su arquitectura multi-tema representa las diferentes facetas de mi personalidad, mi estilo al vestir, la música que escucho e incluso mis raíces (el tema 'Ciudad Blanca' es un tributo a Popayán, la ciudad donde vivo). Es la prueba de que la expresión creativa y el rigor técnico pueden coexistir perfectamente."
   },
   "Experience": {
     "title": "Experiencia Profesional",

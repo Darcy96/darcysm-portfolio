@@ -74,7 +74,7 @@ export function ThemeShell({
       <BstThemeProvider theme={activeTheme} performanceMode={perfMode}>
         <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
           <Navbar
-            brand={<Heading level={5} noMargin>Darcy Solarte M.</Heading>}
+            brand={<Heading level={5} highlight noMargin>Darcy Solarte M.</Heading>}
             links={[
               { label: 'Home', href: '/' },
               // { label: 'Projects', href: '/#projects' },
