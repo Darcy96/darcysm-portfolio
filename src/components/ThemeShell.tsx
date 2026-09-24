@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { BstThemeProvider, Navbar, Footer, LanguageSwitcher, Heading } from '@darcysm/bastet-ui';
 import type { ThemeName } from '@darcysm/bastet-ui';
 import { ThemeSwitcherContext } from './ThemeContext';
@@ -45,6 +45,43 @@ export function ThemeShell({
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
+
+  // Dynamic Favicon Effect
+  useEffect(() => {
+    // Map theme to colors for the favicon
+    const themeColors: Record<ThemeName, { bg: string, text: string }> = {
+      light: { bg: '#F8FAFC', text: '#0F172A' },
+      dark: { bg: '#0F172A', text: '#FFFFFF' },
+      oriental: { bg: '#E63946', text: '#FFFFFF' },
+      'black-metal': { bg: '#111111', text: '#E5E7EB' },
+      pink: { bg: '#EC4899', text: '#FFFFFF' },
+      'white-city': { bg: '#D97757', text: '#FFFFFF' },
+    };
+
+    const colors = themeColors[activeTheme] || themeColors.light;
+    
+    // Minimalist SVG with "DS"
+    const svg = `
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        <rect width="100" height="100" rx="24" fill="${colors.bg}" />
+        <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="800" font-size="46" letter-spacing="-2" fill="${colors.text}">DS</text>
+      </svg>
+    `.trim();
+
+    // Safer encoding for SVG in data URL
+    const dataUrl = `data:image/svg+xml,${encodeURIComponent(svg)}`;
+
+    // Remove any existing favicons injected by Next.js
+    const existingLinks = document.querySelectorAll("link[rel~='icon']");
+    existingLinks.forEach(link => link.remove());
+
+    // Create and inject the new dynamic favicon
+    const newLink = document.createElement('link');
+    newLink.rel = 'icon';
+    newLink.type = 'image/svg+xml';
+    newLink.href = dataUrl;
+    document.head.appendChild(newLink);
+  }, [activeTheme]);
 
   // Load saved theme on mount as a fallback if cookie was missing
   // Removed useEffect to prevent cascading renders and hydration mismatches.
