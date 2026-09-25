@@ -1,8 +1,8 @@
 'use client';
 
-import { HeroSection } from '@/components/sections/HeroSection/HeroSection';
-import { AboutSection } from '@/components/sections/AboutSection/AboutSection';
-import { ExperienceSection } from '@/components/sections/ExperienceSection/ExperienceSection';
+import { HeroSection } from '@/components/sections/HeroSection';
+import { AboutSection } from '@/components/sections/AboutSection';
+import { ExperienceSection } from '@/components/sections/ExperienceSection';
 import { ContactSection } from '@/components/sections/ContactSection';
 
 

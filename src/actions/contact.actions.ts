@@ -2,23 +2,9 @@
 
 import { Resend } from 'resend';
 import { contactSchema, type ContactFormData } from '@/validations/contact.schema';
-
-// ─── Response Type ────────────────────────────────────────────
-
-export interface ActionResponse<T = void> {
-  success: boolean;
-  data?: T;
-  error?: string;
-}
+import type { ActionResponse } from '@/types/api';
 
 // ─── Server Action ────────────────────────────────────────────
-
-const SUBJECT_LABELS: Record<string, string> = {
-  freelance: 'Proyecto Freelance',
-  job: 'Oportunidad Laboral',
-  collaboration: 'Colaboración',
-  other: 'Otro',
-};
 
 export async function sendContactEmail(
   formData: ContactFormData,
@@ -61,7 +47,7 @@ export async function sendContactEmail(
       from: 'Portfolio Contact <onboarding@resend.dev>',
       to: [contactEmail],
       replyTo: parsed.data.email,
-      subject: `[Portfolio] ${SUBJECT_LABELS[parsed.data.subject] || parsed.data.subject} — ${parsed.data.name}`,
+      subject: `[Portfolio] ${parsed.data.subjectLabel || parsed.data.subject} — ${parsed.data.name}`,
       html: `
         <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #1677FF; border-bottom: 2px solid #f0f0f0; padding-bottom: 12px;">
@@ -81,7 +67,7 @@ export async function sendContactEmail(
             </tr>
             <tr>
               <td style="padding: 8px 12px; font-weight: 600; color: #555;">Subject</td>
-              <td style="padding: 8px 12px;">${SUBJECT_LABELS[parsed.data.subject] || parsed.data.subject}</td>
+              <td style="padding: 8px 12px;">${parsed.data.subjectLabel || parsed.data.subject}</td>
             </tr>
           </table>
 

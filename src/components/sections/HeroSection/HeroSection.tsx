@@ -1,10 +1,10 @@
 'use client';
 
 import { HeroCreativeLayout, Button, Heading, Text } from '@darcysm/bastet-ui';
-import { useTranslations } from 'next-intl';
+import { useHeroSection } from './useHeroSection';
 
 export function HeroSection() {
-  const t = useTranslations('Hero');
+  const { t, handleScrollToExperience, handleScrollToContact } = useHeroSection();
 
   const mainCard = (
     <>
@@ -21,20 +21,6 @@ export function HeroSection() {
       {t('card2')}
     </Text>
   );
-
-  const handleScrollToExperience = () => {
-    const element = document.getElementById('experience');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
-
-  const handleScrollToContact = () => {
-    const element = document.getElementById('contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
 
   return (
     <HeroCreativeLayout

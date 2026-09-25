@@ -22,6 +22,8 @@ export const contactSchema = z.object({
       error: 'validation.subjectRequired',
     }),
 
+  subjectLabel: z.string().optional(),
+
   message: z
     .string()
     .min(10, 'validation.messageMin'),
