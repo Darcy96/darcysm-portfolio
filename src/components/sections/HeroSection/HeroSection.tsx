@@ -1,6 +1,6 @@
 'use client';
 
-import { HeroCreativeLayout, Button, Heading, Text } from '@darcysm/bastet-ui';
+import { HeroCreativeLayout, Button, Heading, Text, Card } from '@darcysm/bastet-ui';
 import { useHeroSection } from './useHeroSection';
 
 export function HeroSection() {
@@ -75,9 +75,9 @@ export function HeroSection() {
               transform: 'rotate(-2deg)',
             }}
           >
-            <div className="bst-floating-card">
+            <Card hoverable>
               {mainCard}
-            </div>
+            </Card>
           </div>
 
           {/* Secondary Pill Card (Decorative) */}
@@ -90,8 +90,8 @@ export function HeroSection() {
               transform: 'rotate(6deg)',
             }}
           >
-            <div
-              className="bst-floating-card"
+            <Card
+              hoverable
               style={{
                 width: '160px',
                 padding: '16px',
@@ -99,7 +99,7 @@ export function HeroSection() {
               }}
             >
               {pillCard}
-            </div>
+            </Card>
           </div>
         </div>
       }
@@ -109,11 +109,15 @@ export function HeroSection() {
             {t('description')}
           </Text>
         </div>,
-        <div key="main" className="bst-floating-card" style={{ width: '280px', margin: '0 auto' }}>
-          {mainCard}
+        <div key="main" style={{ width: '280px', margin: '0 auto' }}>
+          <Card hoverable>
+            {mainCard}
+          </Card>
         </div>,
-        <div key="pill" className="bst-floating-card" style={{ width: '240px', padding: '24px', margin: '0 auto', borderRadius: 'calc(var(--bst-radius) * 3)' }}>
-          {pillCard}
+        <div key="pill" style={{ width: '240px', margin: '0 auto' }}>
+          <Card hoverable style={{ padding: '24px', borderRadius: 'calc(var(--bst-radius) * 3)' }}>
+            {pillCard}
+          </Card>
         </div>
       ]}
     />

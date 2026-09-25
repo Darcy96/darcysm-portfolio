@@ -9,7 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@darcysm/bastet-ui": "file:../bastet-ui",
+    "@darcysm/bastet-ui": "^0.1.0",
     "@hookform/resolvers": "^5.9.1",
     "antd": "^6.5.4",
     "next": "16.3.0",
