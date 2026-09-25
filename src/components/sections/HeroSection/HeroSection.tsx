@@ -12,7 +12,14 @@ export function HeroSection() {
       <Text variant="secondary" size="sm">
         {t('card1Desc')}
       </Text>
-      <Button variant="primary" size="sm" style={{ width: '100%' }}>{t('card1Btn')}</Button>
+      <Button 
+        variant="primary" 
+        size="sm" 
+        style={{ width: '100%' }}
+        onClick={() => window.open('https://6ab5ea6d54399a5836d515ac-hgprgiexre.chromatic.com/', '_blank')}
+      >
+        {t('card1Btn')}
+      </Button>
     </>
   );
 
