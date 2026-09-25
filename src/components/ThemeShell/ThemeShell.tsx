@@ -47,9 +47,7 @@ export function ThemeShell({ children, initialTheme, initialPerformanceMode }: T
         <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
           <Navbar
             brand={<Heading level={5} highlight noMargin>Darcy Solarte M.</Heading>}
-            links={[
-              { label: 'Home', href: '/' },
-            ]}
+            links={[]}
             renderLink={(link, className, style) => (
               <Link href={link.href as React.ComponentProps<typeof Link>['href']} className={className} style={style}>
                 {link.label}
