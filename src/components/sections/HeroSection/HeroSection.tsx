@@ -1,6 +1,6 @@
 'use client';
 
-import { HeroCreativeLayout, Button, Heading, Text, Card } from '@darcysm/bastet-ui';
+import { HeroCreativeLayout, Button, Heading, Text, Card, CardBody } from '@darcysm/bastet-ui';
 import { useHeroSection } from './useHeroSection';
 
 export function HeroSection() {
@@ -76,7 +76,9 @@ export function HeroSection() {
             }}
           >
             <Card hoverable>
-              {mainCard}
+              <CardBody>
+                {mainCard}
+              </CardBody>
             </Card>
           </div>
 
@@ -94,11 +96,12 @@ export function HeroSection() {
               hoverable
               style={{
                 width: '160px',
-                padding: '16px',
                 borderRadius: 'calc(var(--bst-radius) * 3)',
               }}
             >
-              {pillCard}
+              <CardBody style={{ padding: '16px' }}>
+                {pillCard}
+              </CardBody>
             </Card>
           </div>
         </div>
@@ -111,12 +114,16 @@ export function HeroSection() {
         </div>,
         <div key="main" style={{ width: '280px', margin: '0 auto' }}>
           <Card hoverable>
-            {mainCard}
+            <CardBody>
+              {mainCard}
+            </CardBody>
           </Card>
         </div>,
         <div key="pill" style={{ width: '240px', margin: '0 auto' }}>
-          <Card hoverable style={{ padding: '24px', borderRadius: 'calc(var(--bst-radius) * 3)' }}>
-            {pillCard}
+          <Card hoverable style={{ borderRadius: 'calc(var(--bst-radius) * 3)' }}>
+            <CardBody style={{ padding: '24px' }}>
+              {pillCard}
+            </CardBody>
           </Card>
         </div>
       ]}
