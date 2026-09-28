@@ -16,7 +16,7 @@ export function HeroSection() {
         variant="primary" 
         size="sm" 
         style={{ width: '100%' }}
-        onClick={() => window.open('https://6ab5ea6d54399a5836d515ac-hgprgiexre.chromatic.com/', '_blank')}
+        onClick={() => window.open('https://bastet-ui.vercel.app', '_blank')}
       >
         {t('card1Btn')}
       </Button>
