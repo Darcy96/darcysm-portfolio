@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo } from 'react';
-import { BstThemeProvider, Navbar, Footer, LanguageSwitcher, Heading } from '@darcysm/bastet-ui';
+import { BstThemeProvider, Navbar, Footer, LanguageSwitcher, Heading, Dropdown, Button } from '@darcysm/bastet-ui';
 import type { ThemeName } from '@darcysm/bastet-ui';
 import { ThemeSwitcherContext } from '../ThemeContext';
 import { useLocale } from 'next-intl';
@@ -68,24 +68,33 @@ export function ThemeShell({ children, initialTheme, initialPerformanceMode }: T
               />
             }
             performanceToggleSlot={
-              <button
-                onClick={() => handlePerfChange(perfMode === 'always' ? 'never' : 'always')}
-                title={perfMode === 'always' ? "Performance Mode ON" : "Performance Mode OFF"}
-                style={{
-                  background: 'transparent',
-                  border: '1px solid var(--bst-border)',
-                  color: perfMode === 'always' ? 'var(--bst-primary)' : 'var(--bst-text-secondary)',
-                  borderRadius: 'var(--bst-radius)',
-                  padding: '4px 8px',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '14px',
-                }}
-              >
-                {perfMode === 'always' ? '⚡ ECO' : '✨ GFX'}
-              </button>
+              <Dropdown>
+                <Dropdown.Trigger>
+                  <Button 
+                    size="sm" 
+                    style={{ display: 'flex', alignItems: 'center', gap: 8 }}
+                  >
+                    <span>{perfMode === 'always' ? '⚡' : '✨'}</span>
+                    <span>{perfMode === 'always' ? 'ECO' : 'GFX'}</span>
+                  </Button>
+                </Dropdown.Trigger>
+                <Dropdown.Content align="center">
+                  <Dropdown.Item 
+                    icon="✨" 
+                    onClick={() => handlePerfChange('never')}
+                    style={{ backgroundColor: perfMode === 'never' ? 'rgba(128, 128, 128, 0.1)' : 'transparent' }}
+                  >
+                    High Fidelity
+                  </Dropdown.Item>
+                  <Dropdown.Item 
+                    icon="⚡" 
+                    onClick={() => handlePerfChange('always')}
+                    style={{ backgroundColor: perfMode === 'always' ? 'rgba(128, 128, 128, 0.1)' : 'transparent' }}
+                  >
+                    Eco Mode
+                  </Dropdown.Item>
+                </Dropdown.Content>
+              </Dropdown>
             }
             activeTheme={activeTheme}
             onThemeChange={handleThemeChange}
