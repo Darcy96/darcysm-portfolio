@@ -6,29 +6,6 @@ import { useHeroSection } from './useHeroSection';
 export function HeroSection() {
   const { t, handleScrollToExperience, handleScrollToContact } = useHeroSection();
 
-  const mainCard = (
-    <>
-      <Heading level={3} highlight noMargin>{t('card1Title')}</Heading>
-      <Text variant="secondary" size="sm">
-        {t('card1Desc')}
-      </Text>
-      <Button 
-        variant="primary" 
-        size="sm" 
-        style={{ width: '100%' }}
-        onClick={() => window.open('https://bastet-ui.vercel.app', '_blank')}
-      >
-        {t('card1Btn')}
-      </Button>
-    </>
-  );
-
-  const pillCard = (
-    <Text size="sm" weight="medium" align="center" style={{ margin: 0 }}>
-      {t('card2')}
-    </Text>
-  );
-
   return (
     <HeroCreativeLayout
       titleSlot={
@@ -77,7 +54,30 @@ export function HeroSection() {
           >
             <Card hoverable>
               <CardBody>
-                {mainCard}
+                <>
+                  <Heading level={3} highlight noMargin>{t('card1Title')}</Heading>
+                  <Text variant="secondary" size="sm">
+                    {t('card1Desc')}
+                  </Text>
+                  <div style={{ marginTop: '16px', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+                    <Button
+                      variant="primary"
+                      size="sm"
+                      style={{ flex: 1, minWidth: 'fit-content' }}
+                      onClick={() => window.open('https://bastet-ui.vercel.app', '_blank')}
+                    >
+                      {t('card1Btn')}
+                    </Button>
+                    <Button
+                      variant="secondary"
+                      size="sm"
+                      style={{ flex: 1, minWidth: 'fit-content' }}
+                      onClick={() => window.open('https://www.npmjs.com/package/@darcysm/bastet-ui', '_blank')}
+                    >
+                      Install now!
+                    </Button>
+                  </div>
+                </>
               </CardBody>
             </Card>
           </div>
@@ -100,7 +100,9 @@ export function HeroSection() {
               }}
             >
               <CardBody style={{ padding: '16px' }}>
-                {pillCard}
+                <Text size="sm" weight="medium" align="center" style={{ margin: 0 }}>
+                  {t('card2')}
+                </Text>
               </CardBody>
             </Card>
           </div>
@@ -115,14 +117,39 @@ export function HeroSection() {
         <div key="main" style={{ width: '280px', margin: '0 auto' }}>
           <Card hoverable>
             <CardBody>
-              {mainCard}
+              <>
+                <Heading level={3} highlight noMargin>{t('card1Title')}</Heading>
+                <Text variant="secondary" size="sm">
+                  {t('card1Desc')}
+                </Text>
+                <div style={{ marginTop: '16px', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+                  <Button
+                    variant="primary"
+                    size="sm"
+                    style={{ flex: 1, minWidth: 'fit-content' }}
+                    onClick={() => window.open('https://bastet-ui.vercel.app', '_blank')}
+                  >
+                    {t('card1Btn')}
+                  </Button>
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    style={{ flex: 1, minWidth: 'fit-content' }}
+                    onClick={() => window.open('https://www.npmjs.com/package/@darcysm/bastet-ui', '_blank')}
+                  >
+                    Install now!
+                  </Button>
+                </div>
+              </>
             </CardBody>
           </Card>
         </div>,
         <div key="pill" style={{ width: '240px', margin: '0 auto' }}>
           <Card hoverable style={{ borderRadius: 'calc(var(--bst-radius) * 3)' }}>
             <CardBody style={{ padding: '24px' }}>
-              {pillCard}
+              <Text size="sm" weight="medium" align="center" style={{ margin: 0 }}>
+                {t('card2')}
+              </Text>
             </CardBody>
           </Card>
         </div>
