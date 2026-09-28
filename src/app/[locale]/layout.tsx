@@ -5,8 +5,13 @@ import '../globals.css';
 import { ThemeShell } from '@/components/ThemeShell';
 
 export const metadata: Metadata = {
-  title: 'Darcysm Portfolio',
-  description: 'Portfolio powered by Bastet UI — a themed React component library',
+  title: 'Darcysm Portfolio | Frontend Engineer',
+  description: 'Specializing in scalable web architecture, design systems, and high-performance interfaces.',
+  openGraph: {
+    title: 'Darcysm Portfolio | Frontend Engineer',
+    description: 'Specializing in scalable web architecture, design systems, and high-performance interfaces.',
+    type: 'website',
+  },
 };
 
 import { NextIntlClientProvider } from 'next-intl';
