@@ -22,11 +22,11 @@ export interface ThemeShellProps {
  *  2. BstThemeProvider — applies the selected Bastet UI theme
  */
 export function ThemeShell({ children, initialTheme, initialPerformanceMode }: ThemeShellProps) {
-  const { 
-    activeTheme, 
-    perfMode, 
-    handleThemeChange, 
-    handlePerfChange 
+  const {
+    activeTheme,
+    perfMode,
+    handleThemeChange,
+    handlePerfChange
   } = useThemeShell({ initialTheme, initialPerformanceMode });
 
   const locale = useLocale();
@@ -70,8 +70,8 @@ export function ThemeShell({ children, initialTheme, initialPerformanceMode }: T
             performanceToggleSlot={
               <Dropdown>
                 <Dropdown.Trigger>
-                  <Button 
-                    size="sm" 
+                  <Button
+                    size="sm"
                     style={{ display: 'flex', alignItems: 'center', gap: 8 }}
                   >
                     <span>{perfMode === 'always' ? '⚡' : '✨'}</span>
@@ -79,15 +79,15 @@ export function ThemeShell({ children, initialTheme, initialPerformanceMode }: T
                   </Button>
                 </Dropdown.Trigger>
                 <Dropdown.Content align="center">
-                  <Dropdown.Item 
-                    icon="✨" 
+                  <Dropdown.Item
+                    icon="✨"
                     onClick={() => handlePerfChange('never')}
                     style={{ backgroundColor: perfMode === 'never' ? 'rgba(128, 128, 128, 0.1)' : 'transparent' }}
                   >
                     High Fidelity
                   </Dropdown.Item>
-                  <Dropdown.Item 
-                    icon="⚡" 
+                  <Dropdown.Item
+                    icon="⚡"
                     onClick={() => handlePerfChange('always')}
                     style={{ backgroundColor: perfMode === 'always' ? 'rgba(128, 128, 128, 0.1)' : 'transparent' }}
                   >
@@ -107,9 +107,8 @@ export function ThemeShell({ children, initialTheme, initialPerformanceMode }: T
 
           <Footer
             socials={[
-              { platform: 'github', url: 'https://github.com/darcysm' },
-              { platform: 'linkedin', url: 'https://linkedin.com/in/darcysm' },
-              { platform: 'twitter', url: 'https://x.com/darcysm' }
+              { platform: 'github', url: 'https://github.com/Darcy96' },
+              { platform: 'linkedin', url: 'https://www.linkedin.com/in/darcysolarte96' }
             ]}
             copyright={`© ${new Date().getFullYear()} Darcysm. Creado con Bastet UI`}
           />
