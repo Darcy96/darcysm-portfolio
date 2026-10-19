@@ -9,7 +9,15 @@ export function HeroSection() {
   return (
     <HeroCreativeLayout
       titleSlot={
-        <Heading level={1} highlight noMargin style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
+        <Heading
+          level={1}
+          highlight
+          noMargin
+          style={{
+            fontSize: 'clamp(1.65rem, 5.5vw, 3.5rem)',
+            overflowWrap: 'break-word',
+          }}
+        >
           {t('title1')} {t('title2')}
         </Heading>
       }
